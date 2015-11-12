@@ -1,0 +1,81 @@
+<section class="" ng-controller="DefaultController">
+  <br />
+  <h1>Contenful API Showcase</h1>
+  <aside><a href="https://www.contentful.com/developers/docs/concepts/apis/">API Reference</a></aside>
+
+  <section>
+    <h3>Content Delivery API</h3>
+
+    <p>
+    The Contentful Delivery API is a fast read-only API for retrieving your content from Contentful. Content is delivered
+    as JSON data; images, videos and other media is delivered as files.</p>
+
+    <p>This example will call an API to retrieve all Assets of a Space. Assets represent files in a Space. An asset can be
+        any kind of file: an image, a video, an audio file, a PDF or any other filetype.
+    </p>
+
+    <pre><code class="javascript">https://cdn.contentful.com/spaces/space_id/assets?access_token=access_token</code></pre>
+    <p>Here is the result</p>
+    <ul>
+      <li ng-repeat="item in assetList">
+          <a href="{{ item.fields.file.url }}">
+          <img width=100 height=100 alt="{{ item.fields.file.fileName }}"  src="{{ item.fields.file.url }}" />
+          </a>
+      </li>
+    </ul>
+    <br class="clear" />
+  </section>
+
+  <section>
+    <h3>Images API</h3>
+    <p>
+        Contentful's Images API allows the retrieval and manipulation of image files referenced from Assets. This example
+        uses this API to resize an images together with image adjustment options.
+    </p>
+    <pre><code class="javascript">https://images.contentful.com/space_id/token1/token2/filename?w=width&h=height&fit=option</code></pre>
+      <section>
+          <h4>Resize an image</h4>
+
+          <form ng-submit="submit()" ng-controller="ResizeImage">
+
+              <figure>
+                  <img ng-src="data:image/png;base64,{{ newImage }}" />
+                  <figcaption>{{ caption }}</figcaption>
+              </figure>
+
+
+              <h5>Image dimension</h5>
+              Width:
+              <input type="text" ng-model="width"  name="width"  maxlength="3" title="Number only, max 999" required />
+              Height:
+              <input type="text" ng-model="height" name="height" maxlength="3" title="Number only, max 999" required />
+              <small>(Number only, max 999)</small>
+
+
+              <h5>Options</h5>
+              By default, images are resized to fit inside the bounding box given by width and height while retaining their
+              aspect ratio. Use the options below to change this behaviour.
+              <br />
+              <input type="radio" ng-model="fit" value="pad" name="fit" /> Same as the default, but add padding so that
+              the generated image has exactly the given dimensions
+              <br />
+              <input type="radio" ng-model="fit" value="crop" name="fit" /> Crop a part of the original image.
+              <br />
+              <input type="radio" ng-model="fit" value="fill" name="fit" /> Fill the given dimensions by cropping the image.
+              <br />
+              <input type="radio" ng-model="fit" value="scale" name="fit" /> Scale the image regardless of the original aspect ratio.
+
+
+              <h5>Rounded corners</h5>
+              <label for="round-corner" id="label-corner">Size</label>
+              <input type="range" ng-model="r" min="0" max="30" value= "10" name="r" id="round-corner" step="1" />
+              <output for="fader" id="corner-size">{{ r + 'px' }}</output>
+              <br class="clear" />
+
+              <input type="submit" id="submit" value="Resize" />
+          </form>
+          <br /><br />
+      </section>
+  </section>
+</section>
+
