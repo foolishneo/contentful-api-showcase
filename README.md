@@ -73,7 +73,7 @@ CdaApi.resizeImage(this.width, this.height, this.fit, this.r).then(function (res
 });
 ```
 
-The services is defined in `public/services/cdaApi.js`. They will communication with the remote HTTP servers via the browser's [XMLHttpRequest](https://developer.mozilla.org/en/xmlhttprequest) object or via [JSONP](http://en.wikipedia.org/wiki/JSONP).
+The services are defined in `public/services/cdaApi.js`. They will communication with the remote HTTP servers via the browser's [XMLHttpRequest](https://developer.mozilla.org/en/xmlhttprequest) object or via [JSONP](http://en.wikipedia.org/wiki/JSONP).
 
 ```javascript
 getAssets: function () {
@@ -91,12 +91,11 @@ resizeImage: function (w , h, f, r) {
 }
 ```
 
-Requests to server are handled by routing definition in `server/routes/cdaApi.js`
+Requests to server are handled by routing definition at `server/routes/cdaApi.js`
 
 ```javascript
 app.route('/api/assets').get(cdaApi.getAssets);
 app.route('/api/resize').get(cdaApi.resizeImage);
-}
 ```
 These setting will define the request URL and assign what controller will handle the request.
 
