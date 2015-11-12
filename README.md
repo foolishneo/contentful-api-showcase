@@ -1,262 +1,26 @@
-<<<<<<< HEAD
-[![Build Status](https://travis-ci.org/linnovate/mean.svg)](https://travis-ci.org/linnovate/mean)
-[![Dependencies Status](https://david-dm.org/linnovate/mean.svg)](https://david-dm.org/linnovate/mean)
-[![Gitter](https://badges.gitter.im/JoinChat.svg)](https://gitter.im/linnovate/mean?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+#  Contentful API Showcase
 
-# [![MEAN Logo](http://mean.io/system/assets/img/logos/meanlogo.png)](http://mean.io/) MEAN Stack
+[Contentful](http://contentful.com) is a content delivery backend with a RESTful JSON API, plus a web app for managing the content. Documentaion about the APIs is [here](https://www.contentful.com/developers/docs/concepts/apis/)
 
-MEAN is a framework for an easy starting point with [MongoDB](http://www.mongodb.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), and [AngularJS](http://angularjs.org/) based applications. It is designed to give you a quick and organized way to start developing MEAN based web apps with useful modules like Mongoose and Passport pre-bundled and configured. We mainly try to take care of the connection points between existing popular frameworks and solve common integration problems.
+This web application employs the Content Delivery API and Images API to load images and mofidy the images online. It was developed with the [Mean.io](http://learn.mean.io) framework. Please refer to Mean.io website for more information about prequisite technologies and installation of Mean.io
 
-## Prerequisite Technologies
-### Linux
-* *Node.js* - <a href="http://nodejs.org/download/">Download</a> and Install Node.js, nodeschool has free <a href=" http://nodeschool.io/#workshoppers">node tutorials</a> to get you started.
-* *MongoDB* - <a href="http://www.mongodb.org/downloads">Download</a> and Install mongodb - <a href="http://docs.mongodb.org/manual">Checkout their manual</a> if you're just starting.
-
-If you're using ubuntu, this is the preferred repository to use...
+## Installaton
 
 ```bash
-$ curl -sL https://deb.nodesource.com/setup | sudo bash -
-$ sudo apt-get update
-$ sudo apt-get install nodejs
+$ git clone https://github.com/foolishneo/contentful-api-showcase.git contentful-api-showcase
+$ cd contentful-api-showcase
+$ npm install
 ```
 
-* *Git* - Get git using a package manager or <a href="http://git-scm.com/downloads">download</a> it.
-
-### Windows
-* *Node.js* - <a href="http://nodejs.org/download/">Download</a> and Install Node.js, nodeschool has free <a href=" http://nodeschool.io/#workshoppers">node tutorials</a> to get you started.
-* *MongoDB* - Follow the great tutorial from the mongodb site - <a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows">"Install Mongodb On Windows"</a>
-* *Git* - The easiest way to install git and then run the rest of the commands through the *git bash* application (via command prompt) is by downloading and installing <a href="http://git-scm.com/download/win">Git for Windows</a>
-
-### OSX
-* *Node.js* -  <a href="http://nodejs.org/download/">Download</a> and Install Node.js or use the packages within brew or macports.
-* *MongoDB* - Follow the tutorial here - <a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/">Install mongodb on OSX</a>
-* *git* - Get git <a href="http://git-scm.com/download/mac">from here</a>.
-
-## Prerequisite packages
-
-* Mean currently works with either grunt or gulp..
-```
-$ npm install -g gulp
-// and bower
-$ npm install -g bower 
-```
-
-## Installation
-To start with MEAN install the `mean-cli` package from NPM.
-This will add the *mean* command which lets you interact (install, manage, update ...) your Mean based application.
-
-### Install the MEAN CLI
-
-```bash
-$ npm install -g mean-cli
-$ mean init <myApp>
-$ cd <myApp> && npm install
-```
-
-### Invoke node with a task manager
-Mean supports the gulp task runner for various services which are applied on the code.
-To start your application run - 
+## Run
 ```bash
 $ gulp
 ```
+then run the website at http://localhost:3000
 
-Alternatively, when not using `gulp` (and for production environments) you can run:
-```bash
-$ node server
-```
-Then, open a browser and go to:
-```bash
-http://localhost:3000
-```
+## Code Structure
 
-### Running on a different port
-If you have a rails, node, or other mean project already running, you may need to use a different port. You can set the port and start your new mean project with one command:
-```bash
-$ export PORT=3001 && gulp
-```
-
-Then, open a browser and change the port number before you visit:
-```bash
-  http://localhost:3001
-```
-
-### Troubleshooting
-During installation depending on your os and prerequisite versions you may encounter some issues.
-
-Most issues can be solved by one of the following tips, but if you are unable to find a solution feel free to contact us via the repository issue tracker or the links provided below.
-
-#### Update NPM, Bower or Grunt
-Sometimes you may find there is a weird error during install like npm's *Error: ENOENT*. Usually updating those tools to the latest version solves the issue.
-
-* Updating NPM:
-```bash
-$ npm update -g npm
-```
-
-* Updating Grunt:
-```bash
-$ npm update -g grunt-cli
-```
-
-* Updating Bower:
-```bash
-$ npm update -g bower
-```
-
-#### Cleaning NPM and Bower cache
-NPM and Bower has a caching system for holding packages that you already installed.
-We found that often cleaning the cache solves some troubles this system creates.
-
-* NPM Clean Cache:
-```bash
-$ npm cache clean
-```
-
-* Bower Clean Cache:
-```bash
-$ bower cache clean
-```
-
-#### Installation problems on Windows 8 / 8.1
-Some of Mean.io dependencies uses [node-gyp](https://github.com/TooTallNate/node-gyp) with supported Python version 2.7.x. So if you see an error related to node-gyp rebuild follow next steps:
-
-1. install [Python 2.7.x](https://www.python.org/downloads/)
-2. install [Microsoft Visual Studio C++ 2012 Express](http://www.microsoft.com/en-us/download/details.aspx?id=34673)
-3. Run NPM update
-
-```bash
-$ npm update -g
-```
-
-#### Git "not found" on Windows
-If you get this error when trying to `mean init`:
-
-```text
-Prerequisite not installed: git
-```
-
-And you definitely have Git for Windows installed, then it's not included in your path. Find the folder containing git.exe (likely `C:\Program Files (x86)\Git\cmd`) and add it to your PATH.
-
-## Technologies
-
-### The MEAN stack
-
-MEAN is an acronym for *M*ongo, *E*xpress.js , *A*ngular.js and *N*ode.js
-
-<dl class="dl-horizontal">
-<dt>MongoDB</dt>
-<dd>Go through MongoDB Official Website and proceed to its Great Manual, which should help you understand NoSQL and MongoDB better.</dd>
-<dt>Express</dt>
-<dd>The best way to understand express is through its Official Website, particularly The Express Guide; you can also go through this StackOverflow thread for more resources.</dd>
-<dt>AngularJS</dt>
-<dd>Angular's Official Website is a great starting point. CodeSchool and google created a <a href="https://www.codeschool.com/courses/shaping-up-with-angular-js">great tutorial</a> for beginners, and the angular videos by <a href="https://egghead.io/">Egghead</a>.</dd>
-<dt>Node.js</dt>
-<dd>Start by going through Node.js Official Website and this StackOverflow thread, which should get you going with the Node.js platform in no time.</dd>
-</dl>
-
-### Additional Tools
-* <a href="http://mongoosejs.com/">Mongoose</a> - The mongodb node.js driver in charge of providing elegant mongodb object modeling for node.js
-* <a href="http://passportjs.org/">Passport</a> - An authentication middleware for Node.js which supports authentication using a username and password, Facebook, Twitter, and more.
-* <a href="http://getbootstrap.com/">Twitter Bootstrap</a> - The most popular HTML, CSS, and JS framework for developing responsive, mobile first projects.
-* <a href="http://angular-ui.github.io/bootstrap/">UI Bootstrap</a> - Bootstrap components written in pure AngularJS
-
-
-## CLI
-### Overview
-
-The MEAN CLI is a simple Command Line Interface for installing and managing MEAN applications. As a core module of the Mean.io project, it provides a number of useful tools to make interaction with your MEAN application easier, with features such as: scaffolding, module creation and admin, status checks, and user management.
-```bash
-$ mean
-$ mean --help
-$ mean help
-```
-  <code>mean help</code> can also be used in conjunction with any command to get more information about that particular functionality. For example, try <code>mean help init</code> to see the options for init
-```bash
-$ mean help [command]
-```
-### Users
-
- <p>Information can be display for a specific customer via <code>mean user email</code>. Email is required. User roles can be assigned or removed with the <code>--addRole (or -a)</code> and <code>--removeRole (or -r)</code> options, respectively.</p>
-  <p>For example, the <i>admin</i> role is required to edit tokens.</p>
-
-```bash
-  $ mean user <email>
-  $ mean user <email> --addRole <role>;
-  $ mean user <email> --removeRole <role>;
-```
-
-### Packages
-#### Management
- <p class="alert alert-warning">All of the remaining of the commands must be run from the root folder of your MEAN application.</p>
-  <p>Contributed MEAN packages can be installed or uninstalled via the CLI. Also, currently installed modules can be viewed with the <code>list</code> command.</p>
-
-```bash
-$ mean list
-$ mean install <module>
-$ mean uninstall <module>
-```
-
-  <p class="alert alert-info">Mean packages installed via the installer are found in <i>/node_modules</i></p>
-#### Search
-To find new packages run the *mean search* command
-```bash
-$ mean search [packagename]
-```
-`mean search` will return all of the available packages, `mean search [packagename]` will filter the search results.
-
-#### Scaffolding
-To create a new MEAN app, run <code>mean init</code>. Name for the application is optional. If no name is provided, "mean" is used. The MEAN project will be cloned from GitHub into a directory of the application name.
-```bash
-$ mean init [name]
-$ cd [name] && npm install
-```
-  <p class="alert alert-info">Note: <a href="http://git-scm.com/downloads">git</a> must be installed for this command to work properly.</p>
-
-### Misc
-<h4>Status</h4>
-<p>Check the database connection for a particular environment (e.g. development (default), test, production) and make sure that the meanio command line version is up to date.</p>
-```bash
-$ mean status
-```
-<h4>Docs</h4>
-<p>A simple shortcut to open the mean documentation in your default browser.</p>
-```bash
-$ mean docs
-```
-
-## Packages
-
-Everything in mean.io is a package and when extending mean with custom functionality make sure you create your own package and do not alter the core packages.
-
-The mean.io package system allows developers to create modular code that provides useful tools that other mean developers can use. The packages, when published, are plug-and-play and are used in a way very similar to traditional npm packages.
-
-The mean.io package system integrates all the packages into the mean project as if the code was part of mean itself and provides the developers with all the necessary tools required to integrate their package into the host project.
-
-There are two types of packages:
-
-**Custom Packages** are generated by the mean scaffolder and contain most of your application logic. Custom packages are found in */packages/custom* and can be published as a contrib package for use by other developers.
-
-**Contrib Packages** are installed by the mean installer and are found at */packages/contrib*. Contrib packages are "plug and play".
-
-### Core Packages
-
-All `Core` packages can be overridden by other packages allowing you to extend and adapt it to fit your specific needs. See `Overriding views` for detailed examples.
-
-
-#### System
-The "system" package creates the basic pages as well as defines the layout of the site and integrates the menu into the page. The system package also allows us to define things such as rendering engines, static files and routing on the client and server side.
-#### Users
-The "users" package creates the database model of the user, provides validation as well as various login and registration features.
-#### Access
-The "access" package manages permissions and middleware. It controls the various authentication methods and is dependent on the users package
-#### Theme
-The "theme" package adds some basic CSS and other assets such as images and backgrounds
-#### Articles
-The "articles" package is typically used as an example starting point for managing content that might be used in a blog or cms. The full CRUD is implemented on the server and client.
-### File structure
-The file structure is similar to that of the mean project itself
-
-`Fundamental` Files at the `root` of the package
+The application resides in a custom package `packages/custom/cda-api`
 
 **Server**
 
@@ -287,18 +51,41 @@ All JavaScript within `public` is automatically aggregated with the exception of
 
 Files within the `public` directory of the package can be accessed externally at `/[package-name]/path-to-file-relative-to-public`. For example, to access the `Tokens` Angular controller, `tokens/controllers/tokens.js`.
 
-###Registering a Package
+## Code Walkthrough
 
-In order for a Package to work it needs to be registered. By doing this you make the package system aware that you are ready and that other packages are able to depend on you. The packages are registered from within `app.js`.
-
-When registering you are required to declare all your dependencies in order for the package system to make them available to your package.
+The AngularJS controllers in `public/controllers/cdaApi.js` will call the [$http](https://docs.angularjs.org/api/ng/service/$http) service to request data from the server. 
 
 ```javascript
-// Example of registering the MyPackage
-MyPackage.register(function(app, auth, database) {
-  // ...
+// get all Assets in a Contentful's Space
+CdaApi.getAssets().then(function (results) {
+  $scope.assetList = results.data.items;
+});
+
+// get the resized image
+CdaApi.resizeImage(this.width, this.height, this.fit, this.r).then(function (results) {
+  $scope.newImage = results.data;
 });
 ```
+
+The services is defined in `public/services/cdaApi.js`. They will communication with the remote HTTP servers via the browser's [XMLHttpRequest](https://developer.mozilla.org/en/xmlhttprequest) object or via [JSONP](http://en.wikipedia.org/wiki/JSONP).
+
+```javascript
+getAssets: function () {
+  var urlBase = '/api/assets',
+  callbackName = 'JSON_CALLBACK',
+  url = urlBase + '?callback=' + callbackName;
+  return $http.jsonp(url);
+},
+
+resizeImage: function (w , h, f, r) {
+  var urlBase = '/api/resize',
+  callbackName = 'JSON_CALLBACK',
+  url = urlBase + '?w=' + w + '&h=' + h + '&f=' + f + '&r=' + r + '&callback=' + callbackName;
+  return $http.get(url);
+}
+```
+
+
 
 MEAN has 3 pre registered dependencies:
   - `app` Makes the express app available .
